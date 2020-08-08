@@ -12,15 +12,16 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
+
 var confirmLength;
 var upper = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var lower = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var confirmNumber = ["1,2,3,4,5,6,7,8,9,0"];
 var confirmChar = ["~","!","@","#","$",",","%","^","&","*","(","_",")","=","+","-","[","]","|","}",";",":",".","/","?","{","}"];
-var upperArr = confirmUpper.split("");
-var lowerArr = confirmLower.split("");
-var numberArr = confirmNumber.split("");
-var charArr = confirmChar.split("");
+//var upperArr = confirmUpper.split("");
+//var lowerArr = confirmLower.split("");
+//var numberArr = confirmNumber.split("");
+//var charArr = confirmChar.split("");
 var confirmPrompt = [];
 var charParameters = [];
 
@@ -38,27 +39,27 @@ function generatePassword () {
   if (confirmUpper === true) {
     charParameters = charParameters.concat("uppercase");
     console.log("uppercase");
-    confirmPrompt = confirmPrompt.concat(upperArr);
+    confirmPrompt = confirmPrompt.concat(upper);
   }
    
   confirmLower = confirm("OK to confirm lowercase characters");
   if (confirmLower === true) {
     charParameters = charParameters.concat("lowercase");
     console.log("lowercase");
-    confirmPrompt = confirmPrompt.concat(lowerArr);
+    confirmPrompt = confirmPrompt.concat(lower);
   }
  confirmNumber = confirm ("Ok to confirm number");
  if (confirmNumber === true) {
    charParameters = charParameters.concat("numbers");
    console.log("numbers");
-   confirmPrompt = confirmPrompt.concat (numberArr);
+   confirmPrompt = confirmPrompt.concat (confirmNumber);
  }
 
  confirmChar = confirm("OK to confirm characters");
  if (confirmChar === true) {
    charParameters = charParameters.concat("characters");
    console.log("characters");
-   confirmPrompt = confirmPrompt.concat(charArr);
+   confirmPrompt = confirmPrompt.concat(confirmChar);
  }
 
  if (confirmUpper === false && confirmLower === false && confirmNumber === false && confirmChar === false) {
@@ -71,6 +72,7 @@ var password ="";
 for (var i = 1; i <= confirmLength; i++) {
   var randomPass = confirmPrompt[Math.floor(Math.random() * confirmPrompt.length)];
   password = password + randomPass;
-  return password;
+  
 }
+return password;
 }
