@@ -12,15 +12,15 @@ function writePassword() {
 
 var confirmLength;
 var confirmUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-var upperArr = confirmUpper.split("");
+var uppArr = confirmUpper.split("");
 var confirmLower = "abcdefghijklmnopqrstuv"
-var lowerArr = confirmLower.split("");
+var lowArr = confirmLower.split("");
 var confirmNumber = "1234567890";
-var numberArr = confirmNumber.split("");
+var numbArr = confirmNumber.split("");
 var confirmChar = "!@#$%^&*()_+=:;'{()}~/,.<>"
 var charArr = confirmChar.split("");
 var confirmPrompt = [];
-var charParameters = [];
+var chParameters = [];
 
 function generatePassword() {
 
@@ -36,7 +36,38 @@ function generatePassword() {
   confirmUpper = confirm("OK to confirm UPPERCASE characters");
 
   if (confirmUpper === true) {
-    charParameters
+    chParameters = chParameters.concat("uppercase");
+    console.log("uppercase");
+    confirmPrompt = confirmPrompt.concat(uppArr);
+  }
+  
+  confirmLower = confirm("OK to confirm lowercase characters");
+  if (confirmLower === true) {
+    chParameters = chParameters.concat("lowercase");
+    console.log("lowercase");
+    confirmPrompt = confirmPrompt.concat(lowArr);
+  }
+
+confirmNumber = confirm("OK to confirm numbers");
+if (confirmNumber === true) {
+  chParameters =chParameters.concat("numbers");
+  console.log("numbers");
+  confirmPrompt = confirmPrompt.concat(numbArr)
+}
+
+confirmChar = confirm("OK to confirm characters");
+if (confirmChar ===true) {
+  chParameters = chParameters.concat("characters");
+  console.log("characters");
+  confirmPrompt = confirmPrompt.concat(charArr);
+}
+
+if (confirmUpper === false && confirmLower === false && 
+  confirmNumber === false && confirmChar === false) {
+    alert("Please select at least one option");
+    return;
+  } else {
+    alert("Password will contain" + chParameters + ".");
   }
 
 
