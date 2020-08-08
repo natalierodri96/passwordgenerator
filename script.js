@@ -70,11 +70,10 @@ if (confirmUpper === false && confirmLower === false &&
     alert("Password will contain" + chParameters + ".");
   }
 
-
+  var password = "";
+    for (var i = 1; i <= confirmLength; i++) {
+     var randomPass = confirmPrompt[Math.floor(Math.random()* confirmPrompt.length)];
+      password = password + randomPass;
 }
-
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
